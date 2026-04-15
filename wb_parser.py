@@ -1,5 +1,6 @@
 from Helpers.data_loader import DataLoader
 from Helpers.data_saver import DataSaver
+from Helpers.data_parser import DataParser
 
 def main():
     load_from_file = True # True если уже загружали все данные с wildberries и нет смысла напрягать сервер еще раз
@@ -11,6 +12,11 @@ def main():
 
     if not load_from_file:
         data_saver.make_response_file(loaded_products)
+    
+    data_parser = DataParser()
+    parsed_products = data_parser.parse(loaded_products=loaded_products)
+
+    data_saver.save_xlsx(rows=parsed_products, out_path="Data/output.xlsx")
 
     print("Задача завершена")
 

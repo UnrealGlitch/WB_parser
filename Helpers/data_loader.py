@@ -3,6 +3,9 @@ import json
 
 import Data.data_classes as data_classes
 
+if __name__ == "__main__":
+    raise Exception("Нужно запускать wb_parser.py")
+
 class DataLoader:
 
     def __init__(self, load_from_file = False, dest: int = -3115289):
