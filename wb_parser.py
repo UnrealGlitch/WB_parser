@@ -16,7 +16,7 @@ def main():
     data_parser = DataParser()
     parsed_products = data_parser.parse(loaded_products=loaded_products)
 
-    data_saver.save_xlsx(rows=parsed_products, out_path="Data/output.xlsx")
+    data_saver.save_xlsx(rows=parsed_products, output_path="Data/output.xlsx")
 
     print("Задача завершена")
 
