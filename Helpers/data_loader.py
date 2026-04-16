@@ -23,7 +23,7 @@ class DataLoader:
             return self.__make_request(
                 params=request_data.params, 
                 cookies=request_data.cookies
-            )  
+            ) 
 
     def __get_token(self) -> str:
         try:

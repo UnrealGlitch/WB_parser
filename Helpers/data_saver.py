@@ -44,7 +44,7 @@ class DataSaver:
                 cell.alignment = Alignment(vertical="top", wrap_text=False)
 
         col_widths = {
-            "Ссылка на товар":       40,
+            "Ссылка на товар":       60,
             "Артикул":               14,
             "Название":              35,
             "Цена (руб)":            12,
@@ -61,8 +61,8 @@ class DataSaver:
             "Ссылка на селлера":     35,
             "Рейтинг селлера":       16
         }
-        for i in range(1, len(headers)):
-            ws.column_dimensions[get_column_letter(i)].width = col_widths.get(headers[i], 20)
+        for i in range(0, len(headers)):
+            ws.column_dimensions[get_column_letter(i + 1)].width = col_widths.get(headers[i], 20)
 
         ws.freeze_panes = "A2"
         wb.save(output_path)
