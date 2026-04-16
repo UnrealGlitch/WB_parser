@@ -59,7 +59,7 @@ class DataSaver:
             "Остатки":               10,
             "Название селлера":      25,
             "Ссылка на селлера":     35,
-            "Рейтинг селлера":       16,
+            "Рейтинг селлера":       16
         }
         for i in range(1, len(headers)):
             ws.column_dimensions[get_column_letter(i)].width = col_widths.get(headers[i], 20)

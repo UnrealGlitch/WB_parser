@@ -15,7 +15,7 @@ class DataParser:
     def __cost_to_rubles(self, value: int) -> str:
         return f"{value / 100}"
 
-    def parse(self, loaded_products: list[dict]) -> list[dict]:
+    def parse(self, loaded_products: list[dict], need_sort: bool = False) -> list[dict]:
         rows = []
         for product in loaded_products:
             id = product.get("id", 0)
@@ -40,6 +40,11 @@ class DataParser:
             color = ""
             for c in product.get("colors", []):
                 color = ", ".join((c.get("name", ""), color))
+
+            review_rating = product.get("reviewRating", 0)
+            if need_sort:
+                if float(price_rub) > 10000 and float(review_rating) < 4.5:
+                    continue
     
             rows.append({
                 "Ссылка на товар":          self.__product_url(id),

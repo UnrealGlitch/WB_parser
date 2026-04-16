@@ -15,8 +15,10 @@ def main():
     
     data_parser = DataParser()
     parsed_products = data_parser.parse(loaded_products=loaded_products)
+    sorted_products = data_parser.parse(loaded_products=loaded_products, need_sort=True)
 
     data_saver.save_xlsx(rows=parsed_products, output_path="Data/output.xlsx")
+    data_saver.save_xlsx(rows=sorted_products, output_path="Data/sorted_output.xlsx")
 
     print("Задача завершена")
 
